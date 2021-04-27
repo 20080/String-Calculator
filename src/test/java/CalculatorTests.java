@@ -75,4 +75,11 @@ public class CalculatorTests {
     public void ignoreNumbersBiggerThen1000(){
         Assert.assertEquals(1005,Calculator.add("//*\n1000*10005*5"));
     }
+
+    @Test
+    public void separatorOfAnyLength(){
+        count++;
+        Assert.assertEquals(18,Calculator.add("//[***][&&&]\n6***6&&&6"));
+    }
+
 }

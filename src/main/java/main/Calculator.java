@@ -1,5 +1,7 @@
 package main;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,12 +20,33 @@ public class Calculator {
     private static int returnNumbers(String s) {
         int ans = 0;
         //custom separator check
-        String regex = ",\n";
-        if (s.startsWith("//")) {
+        StringBuilder regex = new StringBuilder(";\n,");
+        if (s.startsWith("//[")) {
+            int i=0;
+            Set<Character> set = new HashSet<>();
+            while(s.charAt(i)!='\n') {
+                if (s.charAt(i) == '[' || s.charAt(i) == ']'){
+                    i++;
+                    continue;
+                }
+
+                set.add(s.charAt(i));
+                i++;
+            }
+            for(Character x : set){
+                regex.append(x);
+            }
+
+
+            s = s.substring(i+1);
+            System.out.println(regex);
+
+
+        } else if (s.startsWith("//")) {
             Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(s);
             matcher.matches();
 //            regex = Pattern.quote(matcher.group(1));
-            regex = matcher.group(1);
+            regex = new StringBuilder(matcher.group(1));
             s = matcher.group(2);
 
         }
@@ -33,11 +56,17 @@ public class Calculator {
             String[] st = s.split("[" + regex + "]");
             StringBuilder nv = new StringBuilder();
             for (String ss : st) {
-                int temp = Integer.parseInt(ss);
+                int temp;
+                try{
+                    temp = Integer.parseInt(ss);
+                }
+                catch (NumberFormatException e){
+                    continue;
+                }
                 if (temp < 0) {
                     nv.append(ss).append(" ");
                 }
-                if(temp>1000)
+                if (temp > 1000)
                     continue;
                 ans += temp;
             }
@@ -52,8 +81,8 @@ public class Calculator {
     }
 
 
-
     private static int count;
+
     public static int GetCalledCount() {
         return count;
     }
