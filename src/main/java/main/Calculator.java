@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class Calculator {
 
-
+//the one and only required function by the calculator
     public static int add(String data) {
         count++;
         if (data.isEmpty()) return 0;
@@ -21,8 +21,10 @@ public class Calculator {
         int ans = 0;
         //custom separator check
         StringBuilder regex = new StringBuilder(";\n,");
+        //This if statement checks if the String going to have multiple separators
         if (s.startsWith("//[")) {
             int i=0;
+            //using set so only one copy of each type of regex gets recorded
             Set<Character> set = new HashSet<>();
             while(s.charAt(i)!='\n') {
                 if (s.charAt(i) == '[' || s.charAt(i) == ']'){
@@ -37,11 +39,15 @@ public class Calculator {
                 regex.append(x);
             }
 
-
+            //reIndexing the string here so it starts
+            //form the position where the actual calculation needed to be done
             s = s.substring(i+1);
             System.out.println(regex);
 
-        } else if (s.startsWith("//")) {
+        }
+        //this if statement is for when the
+        // string has only one type of custom separator
+        else if (s.startsWith("//")) {
             Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(s);
             matcher.matches();
 //            regex = Pattern.quote(matcher.group(1));
@@ -50,7 +56,9 @@ public class Calculator {
 
         }
 
-        //if separated by a comma or a new line
+        //at last if the above conditions skips here only one option left i.e.
+        // the string has the default separator i.e. , or ; as given in the problem
+        //or it also processes if the string was one of the above type
         if (s.length() > 1) {
             String[] st = s.split("[" + regex + "]");
             StringBuilder nv = new StringBuilder();
@@ -81,7 +89,7 @@ public class Calculator {
 
 
     private static int count;
-
+//program to count the number of Add function calls
     public static int GetCalledCount() {
         return count;
     }
