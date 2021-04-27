@@ -23,4 +23,9 @@ public class CalculatorTests {
     public void acceptNewLineAsASeparator(){
         Assert.assertEquals(6,Calculator.add("3,2\n1"));
     }
+
+    @Test
+    public void customSeparatorsSyntax(){
+        Assert.assertEquals(2,Calculator.add("//;\n2"));
+    }
 }
