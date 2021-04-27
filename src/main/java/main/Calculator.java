@@ -42,8 +42,6 @@ public class Calculator {
             //reIndexing the string here so it starts
             //form the position where the actual calculation needed to be done
             s = s.substring(i+1);
-            System.out.println(regex);
-
         }
         //this if statement is for when the
         // string has only one type of custom separator
