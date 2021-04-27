@@ -37,6 +37,8 @@ public class Calculator {
                 if (temp < 0) {
                     nv.append(ss).append(" ");
                 }
+                if(temp>1000)
+                    continue;
                 ans += temp;
             }
             if (nv.length() > 0) {

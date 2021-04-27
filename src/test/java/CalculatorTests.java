@@ -73,6 +73,6 @@ public class CalculatorTests {
 
     @Test
     public void ignoreNumbersBiggerThen1000(){
-        Assert.assertEquals("1005",Calculator.add("//*\n1000*10005*5"));
+        Assert.assertEquals(1005,Calculator.add("//*\n1000*10005*5"));
     }
 }
