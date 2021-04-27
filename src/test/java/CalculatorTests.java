@@ -70,4 +70,9 @@ public class CalculatorTests {
     public void checkNumberOfCalls(){
         Assert.assertEquals(count,Calculator.GetCalledCount());
     }
+
+    @Test
+    public void ignoreNumbersBiggerThen1000(){
+        Assert.assertEquals("1005",Calculator.add("//*\n1000*10005*5"));
+    }
 }
