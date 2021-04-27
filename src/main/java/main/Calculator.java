@@ -46,7 +46,5 @@ public class Calculator {
         return ans;
     }
     int count = 0;
-    public static int GetCalledCount() {
-        return 0 ;
-    }
+
 }
