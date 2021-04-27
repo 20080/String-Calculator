@@ -41,7 +41,6 @@ public class Calculator {
             s = s.substring(i+1);
             System.out.println(regex);
 
-
         } else if (s.startsWith("//")) {
             Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(s);
             matcher.matches();
