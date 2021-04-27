@@ -1,6 +1,5 @@
 import main.Calculator;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.fail;
@@ -44,6 +43,17 @@ public class CalculatorTests {
         }
         catch (RuntimeException e){
     //todo
+        }
+    }
+
+    @Test
+    public void exceptionMessageShouldContainNegativeNumber(){
+        try{
+            Calculator.add("-2,3");
+            fail("Exception Expected");
+        }
+        catch (RuntimeException e){
+            Assert.assertEquals("Negatives not allowed: -2 ",e.getMessage());
         }
     }
 }
