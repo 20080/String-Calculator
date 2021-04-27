@@ -13,4 +13,9 @@ public class CalculatorTests {
     public void returnNumberForNumber(){
         Assert.assertEquals(1,Calculator.add("1"));
     }
+
+    @Test
+    public void returnSumOfNumberSeparatedByCommas(){
+        Assert.assertEquals(5,Calculator.add("3,2"));
+    }
 }
