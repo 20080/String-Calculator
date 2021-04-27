@@ -26,6 +26,11 @@ public class CalculatorTests {
 
     @Test
     public void customSeparatorsSyntax(){
-        Assert.assertEquals(2,Calculator.add("//;\n2"));
+        Assert.assertEquals(9,Calculator.add("//;\n2;6;1"));
+    }
+
+    @Test
+    public void customSeparatorIsDOT(){
+        Assert.assertEquals(8,Calculator.add("//.\n2.6"));
     }
 }
