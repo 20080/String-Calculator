@@ -56,4 +56,9 @@ public class CalculatorTests {
             Assert.assertEquals("Negatives not allowed: -2 ",e.getMessage());
         }
     }
+
+    @Test
+    public void checkNumberOfCalls(){
+        Assert.assertEquals(8,Calculator.GetCalledCount());
+    }
 }

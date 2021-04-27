@@ -45,4 +45,8 @@ public class Calculator {
             ans = Integer.parseInt(s);
         return ans;
     }
+    int count = 0;
+    public static int GetCalledCount() {
+        return 0 ;
+    }
 }
