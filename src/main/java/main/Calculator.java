@@ -2,17 +2,24 @@ package main;
 
 public class Calculator {
     public static int add(String data) {
-        if(data.isEmpty()) return 0;
-        else if(data.contains(",")){
-            String[] st = data.split(",");
-            int ans = 0;
-            for(String s : st){
-                ans += Integer.parseInt(s);
-            }
-            return ans;
-        }
+        if (data.isEmpty()) return 0;
         else{
-            return Integer.parseInt(data);
+            return returnNumbers(data);
         }
+    }
+
+    private static int returnNumbers(String s) {
+        int ans = 0;
+        //if separated by a comma
+        if (s.length() > 1 && s.contains(",")) {
+            String[] st = s.split(",");
+            for (String ss : st) {
+                ans += Integer.parseInt(ss);
+            }
+        }
+        //if its just a single digit
+        else if (s.length() == 1)
+            ans = Integer.parseInt(s);
+        return ans;
     }
 }
