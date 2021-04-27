@@ -33,4 +33,14 @@ public class CalculatorTests {
     public void customSeparatorIsDOT(){
         Assert.assertEquals(8,Calculator.add("//.\n2.6"));
     }
+
+    @Test
+    public void raiseExceptionOnNegativeNumbers(){
+        try{
+            Calculator.add("-2,3,1");
+        }
+        catch (RuntimeException e){
+    //todo
+        }
+    }
 }
