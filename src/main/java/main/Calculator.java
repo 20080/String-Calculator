@@ -19,8 +19,10 @@ public class Calculator {
         if(s.startsWith("//")){
             Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(s);
             matcher.matches();
-            regex += matcher.group(1);
+//            regex = Pattern.quote(matcher.group(1));
+            regex = matcher.group(1);
             s = matcher.group(2);
+
         }
 
         //if separated by a comma or a new line
