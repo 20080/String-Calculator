@@ -4,7 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Calculator {
+
+
     public static int add(String data) {
+        count++;
         if (data.isEmpty()) return 0;
         else {
             return returnNumbers(data);
@@ -45,6 +48,8 @@ public class Calculator {
             ans = Integer.parseInt(s);
         return ans;
     }
-    int count = 0;
-
+    private static int count;
+    public static int GetCalledCount() {
+        return count;
+    }
 }
