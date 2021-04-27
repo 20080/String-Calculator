@@ -29,7 +29,9 @@ public class Calculator {
         if (s.length() > 1) {
             String[] st = s.split("["+regex+"]");
             for (String ss : st) {
-                ans += Integer.parseInt(ss);
+                int temp = Integer.parseInt(ss);
+                if(temp<0) throw new RuntimeException();
+                ans += temp;
             }
         }
         //if its just a single digit

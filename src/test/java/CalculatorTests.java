@@ -3,6 +3,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.fail;
+
 public class CalculatorTests {
     @Test
     public void shouldReturnZeroForEmptyString(){
@@ -38,6 +40,7 @@ public class CalculatorTests {
     public void raiseExceptionOnNegativeNumbers(){
         try{
             Calculator.add("-2,3,1");
+            fail("Exception Expected");
         }
         catch (RuntimeException e){
     //todo
