@@ -10,9 +10,9 @@ public class Calculator {
 
     private static int returnNumbers(String s) {
         int ans = 0;
-        //if separated by a comma
+        //if separated by a comma or a new line
         if (s.length() > 1 && s.contains(",")) {
-            String[] st = s.split(",");
+            String[] st = s.split("[,\n]");
             for (String ss : st) {
                 ans += Integer.parseInt(ss);
             }
