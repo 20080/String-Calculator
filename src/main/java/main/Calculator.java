@@ -11,6 +11,7 @@ public class Calculator {
         }
     }
 
+
     private static int returnNumbers(String s) {
         int ans = 0;
         //custom separator check
